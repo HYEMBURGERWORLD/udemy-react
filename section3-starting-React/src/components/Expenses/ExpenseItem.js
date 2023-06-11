@@ -1,8 +1,9 @@
+import React from 'react';
 import ExpenseDate from './ExpenseDate';
-import Card from './Card';
+import Card from '../UI/Card';
 import './ExpenseItem.css';
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
   // props는 어떤 이름으로 사용해도 되지만 보통 정확한 의미 전달을 위해 props를 사용한다
   // 우리가 얻는 속성에 대한 모든 값을 가진 객체를 의미한다.
 
@@ -16,6 +17,6 @@ function ExpenseItem(props) {
       </div>
     </Card>
   );
-}
+};
 
 export default ExpenseItem;
