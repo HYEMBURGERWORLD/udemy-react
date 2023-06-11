@@ -1,3 +1,4 @@
+import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
 
 function ExpenseItem(props) {
@@ -7,7 +8,7 @@ function ExpenseItem(props) {
   return (
     <div className='expense-item'>
       {/* date 객체이기 때문에 문자열로 출력 불가능 -> Error -> toISOString 메서드 사용 */}
-      <div>{props.date.toISOString()}</div>
+      <ExpenseDate date={props.date} />
       <div className='expense-item__description'>
         <h2>{props.title}</h2>
         <div className='expense-item__price'>${props.amount}</div>
