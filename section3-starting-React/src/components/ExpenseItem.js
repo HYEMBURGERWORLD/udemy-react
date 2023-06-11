@@ -1,4 +1,5 @@
 import ExpenseDate from './ExpenseDate';
+import Card from './Card';
 import './ExpenseItem.css';
 
 function ExpenseItem(props) {
@@ -6,14 +7,14 @@ function ExpenseItem(props) {
   // 우리가 얻는 속성에 대한 모든 값을 가진 객체를 의미한다.
 
   return (
-    <div className='expense-item'>
+    <Card className='expense-item'>
       {/* date 객체이기 때문에 문자열로 출력 불가능 -> Error -> toISOString 메서드 사용 */}
       <ExpenseDate date={props.date} />
       <div className='expense-item__description'>
         <h2>{props.title}</h2>
         <div className='expense-item__price'>${props.amount}</div>
       </div>
-    </div>
+    </Card>
   );
 }
 
