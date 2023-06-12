@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
 import './ExpenseItem.css';
 
 const ExpenseItem = (props) => {
-  // props는 어떤 이름으로 사용해도 되지만 보통 정확한 의미 전달을 위해 props를 사용한다
-  // 우리가 얻는 속성에 대한 모든 값을 가진 객체를 의미한다.
+  // const [관리되고 있는 값, 나중에 새로운 값을 설정하기 위해 호출할 수 있는 함수] = useState(초기값)
+  const [title, setTitle] = useState(props.title);
+
+  const clickHandler = () => {
+    setTitle('Updated!');
+    // 해당 컴포넌트가 재실행, 재평가 된다.
+  };
 
   return (
     <Card className='expense-item'>
-      {/* date 객체이기 때문에 문자열로 출력 불가능 -> Error -> toISOString 메서드 사용 */}
       <ExpenseDate date={props.date} />
       <div className='expense-item__description'>
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <div className='expense-item__price'>${props.amount}</div>
       </div>
+      {/* React에서는 모든 event를 on으로 시작하는 props로 노출 */}
+      <button onClick={clickHandler}>Change Title</button>
     </Card>
   );
 };
